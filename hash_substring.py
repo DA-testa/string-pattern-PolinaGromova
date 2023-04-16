@@ -1,27 +1,33 @@
 # python3
 
 def read_input():
-    try:
+    while True:
         text = input().strip()
-    except EOFError:
-        print("No input received")
-        return "", ""
-    
-    if text=="F":
-        filename = input() 
-        path = './tests/'
-        file=path+filename
-        with open(file, mode="r") as f:
-                pattern=f.readline().strip()
-                text=f.readline().strip()
-    elif text=="I":
-        pattern=input().strip()
-        text=input().strip()
-    else: 
-        print("Input error")
-        return "", ""
-    
-    
+        if text not in ["I", "F"]:
+            print("Invalid choice, please enter 'I' or 'F'")
+            continue
+
+        if text == "I":
+            pattern = input().strip()
+            text = input().strip()
+            return pattern, text
+
+        if text == "F":
+            while True:
+                filename = input("Enter file name: ").strip()
+                if not filename:
+                    print("Invalid filename, please try again")
+                    continue
+                path = './tests/'
+                file = path + filename
+                try:
+                    with open(file, mode="r") as f:
+                        pattern = f.readline().strip()
+                        text = f.readline().strip()
+                        return pattern, text
+                except FileNotFoundError:
+                    print("File not found, please try again")
+                    continue
     return pattern,text
 
 def print_occurrences(output):
