@@ -3,12 +3,16 @@
 def read_input():
     text=input()
     if "F" in text:
-        filename = input("Enter file name: ") 
+        filename = input("Enter file name: ")
         path = './tests/'
-        file=path+filename
-        with open("input.txt", mode="r") as f:
-                pattern=f.readline().strip()
-                text=f.readline().strip()
+        file = path + filename
+        try:
+            with open(file, mode="r") as f:
+                pattern = f.readline().strip()
+                text = f.readline().strip()
+        except FileNotFoundError:
+            print("Error: file not found.")
+            exit()
     elif "I" in text:
         pattern=input().strip()
         text=input().strip()
