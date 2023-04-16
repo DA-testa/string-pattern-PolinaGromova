@@ -1,7 +1,12 @@
 # python3
 
 def read_input():
-    text=input().strip()
+    try:
+        text = input().strip()
+    except EOFError:
+        print("No input received")
+        return "", ""
+    
     if text=="F":
         filename = input() 
         path = './tests/'
@@ -12,7 +17,10 @@ def read_input():
     elif text=="I":
         pattern=input().strip()
         text=input().strip()
-    else: print("Input error")
+    else: 
+        print("Input error")
+        return "", ""
+    
     
     return pattern,text
 
