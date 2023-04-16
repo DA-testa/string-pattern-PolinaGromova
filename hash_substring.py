@@ -1,19 +1,12 @@
 # python3
 
 def read_input():
-    text=input()
-    if "F" in text:
-        filename = input("Enter file name: ")
-        path = './tests/'
-        file = path + filename
-        try:
-            with open(file, mode="r") as f:
-                pattern = f.readline().strip()
-                text = f.readline().strip()
-        except FileNotFoundError:
-            print("Error: file not found.")
-            exit()
-    elif "I" in text:
+    text=input().strip()
+    if text=="F":
+        with open("input.txt", "r") as f:
+                pattern=f.readline().strip()
+                text=f.readline().strip()
+    elif text=="I":
         pattern=input().strip()
         text=input().strip()
     else: print("Input error")
@@ -41,4 +34,3 @@ def get_occurrences(pattern, text):
 
 if __name__ == '__main__':
     print_occurrences(get_occurrences(*read_input()))
-
