@@ -3,9 +3,7 @@
 def read_input():
     text=input().strip()
     if text=="F":
-        filename = input().strip() 
-        path = './tests/'
-        file=path+filename
+        file = './tests/06'
         with open(file, mode="r") as f:
                 pattern=f.readline().strip()
                 text=f.readline().strip()
