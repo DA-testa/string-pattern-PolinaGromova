@@ -3,7 +3,10 @@
 def read_input():
     text=input().strip()
     if text=="F":
-        with open("input.txt", "r") as f:
+        filename = input() 
+        path = './tests/'
+        file=path+filename
+        with open(file, mode="r") as f:
                 pattern=f.readline().strip()
                 text=f.readline().strip()
     elif text=="I":
