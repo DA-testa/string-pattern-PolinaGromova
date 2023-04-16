@@ -1,7 +1,7 @@
 # python3
 
 def read_input():
-    text=input("Enter I or F: ")
+    text=input()
     if "F" in text:
         filename = input("Enter file name: ") 
         path = './tests/'
