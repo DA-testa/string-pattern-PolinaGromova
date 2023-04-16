@@ -6,7 +6,7 @@ def read_input():
         filename = input("Enter file name: ") 
         path = './tests/'
         file=path+filename
-        with open(file, mode="r") as f:
+        with open("input.txt", mode="r") as f:
                 pattern=f.readline().strip()
                 text=f.readline().strip()
     elif "I" in text:
